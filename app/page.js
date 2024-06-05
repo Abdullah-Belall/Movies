@@ -14,10 +14,3 @@ export default function Home() {
     </>
   );
 }
-
-// poster link
-// https://image.tmdb.org/t/p/w500
-// trenPage
-// https://api.themoviedb.org/3/trending/movie/day?language=en-US&page=1
-// import { animateScroll as scroll } from "react-scroll";
-// scroll.scrollToTop({ smooth: true });

@@ -21,19 +21,19 @@ export default function Nav() {
     }
   }, []);
   const segment = useSelectedLayoutSegment();
-  const navLinks = [
-    { id: `${uuidv4()}`, name: "Home", goTo: null },
-    { id: `${uuidv4()}`, name: "Browes", goTo: "browes" },
-    { id: `${uuidv4()}`, name: "Favorite", goTo: "favorite" },
-    { id: `${uuidv4()}`, name: "Watchlist", goTo: "watchlist" },
-  ];
-  const disNavLink = navLinks.map((e) => {
-    return (
-      <Link key={e.id} href={e.goTo === null ? "/" : `/` + e.goTo} className={segment === e.goTo ? "NavActive" : ""}>
-        <p className="mylinkspage normal">{e.name}</p>
-      </Link>
-    );
-  });
+  // const navLinks = [
+  //   { id: `${uuidv4()}`, name: "Home", goTo: null },
+  //   { id: `${uuidv4()}`, name: "Browes", goTo: "browes" },
+  //   { id: `${uuidv4()}`, name: "Favorite", goTo: "favorite" },
+  //   { id: `${uuidv4()}`, name: "Watchlist", goTo: "watchlist" },
+  // ];
+  // const disNavLink = navLinks.map((e) => {
+  //   return (
+  //     <Link key={e.id} href={e.goTo === null ? "/" : `/` + e.goTo} className={segment === e.goTo ? "NavActive" : ""}>
+  //       <p className="mylinkspage normal">{e.name}</p>
+  //     </Link>
+  //   );
+  // });
   function handleLogout() {
     const sessionId = Cookies.get("sessionId");
     axios
@@ -106,7 +106,21 @@ export default function Nav() {
         <Link href={"/"}>
           <div className="logo">Morror</div>
         </Link>
-        <div className="navContainer d-flex flex-column">{disNavLink}</div>
+        {/* <div className="navContainer d-flex flex-column">{disNavLink}</div> */}
+        <div className="navContainer d-flex flex-column">
+          <Link href={"/"} className={segment === null ? "NavActive" : ""}>
+            <p className="mylinkspage normal">Home</p>
+          </Link>
+          <Link href={"/browes"} className={segment === "browes" ? "NavActive" : ""}>
+            <p className="mylinkspage normal">Browes</p>
+          </Link>
+          <Link href={"/favorite"} className={segment === "favorite" ? "NavActive" : ""}>
+            <p className="mylinkspage normal">Favorite</p>
+          </Link>
+          <Link href={"/watchlist"} className={segment === "watchlist" ? "NavActive" : ""}>
+            <p className="mylinkspage normal">Watchlist</p>
+          </Link>
+        </div>
         <div className="navFooter d-flex flex-column gap-2">
           {isGuest ? (
             <>
