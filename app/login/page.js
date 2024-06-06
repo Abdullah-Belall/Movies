@@ -58,7 +58,7 @@ export default function Login() {
     if (sessionId && approved) {
       Cookies.set("sessionId", sessionId, { expires: 30 });
       setTimeout(() => {
-        window.location.href = "https://morror-99uohhiuw-abdullahs-projects-876ffb5d.vercel.app/"; //end here
+        window.location.href = "https://morror.vercel.app/"; //end here
       }, 2000);
     }
   }, [sessionId]);
